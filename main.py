@@ -1,7 +1,7 @@
 import discord
 import os
 import random
-from discord.ext import commands
+from discord.ext import commands, tasks
 from keep_alive import keep_alive
 
 version = discord.__version__
@@ -18,6 +18,7 @@ async def on_ready():
   print(
     f'Logged in as {bot.user.name} ({bot.user.id}), Discord version: {version}'
   )
+  myFunction.start()
 
 
 @bot.event
@@ -94,7 +95,11 @@ async def d100(ctx):
   else:
     await ctx.send(f':game_die: You rolled a {rolled_num}!')
 
+@tasks.loop(minutes=1)
+async def myFunction():
+  print('Bot is still running...')
 
+  
 #run uptimerobot server
 keep_alive()
 
