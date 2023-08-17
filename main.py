@@ -4,8 +4,6 @@ import random
 from discord.ext import commands
 from keep_alive import keep_alive
 
-keep_alive()
-
 version = discord.__version__
 intents = discord.Intents.default()
 intents.typing = False
@@ -96,6 +94,9 @@ async def d100(ctx):
   else:
     await ctx.send(f':game_die: You rolled a {rolled_num}!')
 
+
+#run uptimerobot server
+keep_alive()
 
 #discord bot token obscured with replit tool "Secrets"
 bot_token = os.environ['bot token']

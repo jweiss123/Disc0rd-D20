@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return "Alive"
+  return "It's Alive!"
 
 
 def run():
